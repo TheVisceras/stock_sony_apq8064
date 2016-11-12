@@ -1,5 +1,5 @@
 /* Copyright (c) 2011-2013, The Linux Foundation. All rights reserved.
- * Copyright (C) 2012-2013, Sony Mobile Communications AB.
+ * Copyright (C) 2012-2014 Sony Mobile Communications AB.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -2700,8 +2700,7 @@ int pm8921_batt_temperature(void)
 
 static void check_unplug_wakelock(struct pm8921_chg_chip *chip)
 {
-	if (!wake_lock_active(&chip->unplug_wake_lock) &&
-		!is_usb_chg_plugged_in(chip) &&
+	if (!is_usb_chg_plugged_in(chip) &&
 		!is_dc_chg_plugged_in(chip)) {
 		wake_lock_timeout(&chip->unplug_wake_lock,
 				UNPLUG_WAKELOCK_TIME_SEC);
