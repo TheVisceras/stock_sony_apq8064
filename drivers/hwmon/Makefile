@@ -137,3 +137,5 @@ obj-$(CONFIG_PMBUS)		+= pmbus/
 
 ccflags-$(CONFIG_HWMON_DEBUG_CHIP) := -DDEBUG
 
+# Warning
+KBUILD_CFLAGS += -Wno-maybe-uninitialized
